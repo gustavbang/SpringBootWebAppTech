@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 @Entity
@@ -14,16 +16,26 @@ public class MyUser {
     private Long id;
     private String username;
     private String password;
-    private String[] roles;
+    private ArrayList roles;
 
     public MyUser() {
     }
 
-    public MyUser(Long id, String username, String password, String[] roles) {
+    public MyUser(Long id, String username, String password, ArrayList roles, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.roles = roles;
+        roles.add(role);
+    }
+
+    public MyUser(Long id, String username, String password, ArrayList roles, String role1, String role2) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+        roles.add(role1);
+        roles.add(role2);
     }
 
     public Long getId() {
@@ -50,11 +62,13 @@ public class MyUser {
         this.password = password;
     }
 
-    public String[] getRoles() {
+    public ArrayList getRoles() {
+
         return roles;
     }
 
-    public void setRoles(String[] roles) {
+    public void setRoles(ArrayList roles) {
+
         this.roles = roles;
     }
 
@@ -64,7 +78,7 @@ public class MyUser {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", roles=" + Arrays.toString(roles) +
+                ", roles=" + roles +
                 '}';
     }
 
@@ -78,8 +92,7 @@ public class MyUser {
         if (id != null ? !id.equals(myUser.id) : myUser.id != null) return false;
         if (username != null ? !username.equals(myUser.username) : myUser.username != null) return false;
         if (password != null ? !password.equals(myUser.password) : myUser.password != null) return false;
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        return Arrays.equals(roles, myUser.roles);
+        return roles != null ? roles.equals(myUser.roles) : myUser.roles == null;
     }
 
     @Override
@@ -87,8 +100,7 @@ public class MyUser {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(roles);
+        result = 31 * result + (roles != null ? roles.hashCode() : 0);
         return result;
     }
-
 }
