@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 @Controller
 public class HomeController {
 
-    private static Logger logger = Logger.getLogger(HomeController.class.getName());
+   // private static Logger logger = Logger.getLogger(HomeController.class.getName());
 
     private UserService userService;
 
@@ -23,6 +23,8 @@ public class HomeController {
 
         this.userService = userService;
     }
+
+    public String tweetPost;
 
     @RequestMapping(value = {"","/","index"}, method = RequestMethod.GET)
     public String index(Model model){
@@ -34,7 +36,7 @@ public class HomeController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute MyUser user, Model model){
-        // logger.info("login method ca lled with: " + user);
+        // logger.info("login method called with: " + user);
 
         user = userService.getUser(user.getUsername(), user.getPassword());
 
@@ -54,8 +56,23 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
+
     public String logout(){
 
         return "logout";
     }
+
+
+    @RequestMapping(value = "/adminPage", method = RequestMethod.POST)
+    public String adminPage(@RequestParam("tweet") String input, Model model) {
+        model.addAttribute("theText", input);
+        return "adminPage";
+            }
+
+
+
+
+
+
+
 }

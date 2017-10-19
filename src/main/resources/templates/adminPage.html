@@ -6,13 +6,16 @@
 <body>
     <p>Sut mib Liq a ma diq</p>
 
-    <form action="http://localhost:5000/login">
 
-        <textarea rows="4" cols="50">
+        <form th:action="@{/adminPage}" method="post">
+            <textarea rows="4" cols="50" name="tweet">
         </textarea>
-        <input type="submit" name="button" id="button" value="Send" />
+            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit Text"/>
 
-    </form>
+        </form>
+
+            <div th:text="${theText}"></div>
+
 
 </body>
 </html>
