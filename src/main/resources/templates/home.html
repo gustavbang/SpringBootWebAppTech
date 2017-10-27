@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Home Example </title>
+    <link rel="stylesheet" href="static/style.css"
+          th:href="@{style.css}"/>
+    <title>TWITTER ENGINE v2.084 </title>
     <div th:replace="fragments/header :: header-css"/>
 </head>
 <body>
@@ -9,8 +11,16 @@
 <div th:replace="fragments/header :: header"/>
 
 <div class="container">
-    <h2>You're are logged in correctly</h2>
+    <h1>Latest admin tweets:</h1>
 
+
+    <table class="mitTable">
+        <tr th:each=" tweet : ${allTweets}" class="row">
+            <td> Tweet:</td>
+            <td th:text="${tweet.tekst}"></td>
+            <td th:text="${tweet.id}"></td>
+        </tr>
+    </table>
 
 </div>
 

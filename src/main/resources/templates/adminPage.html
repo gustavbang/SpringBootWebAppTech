@@ -2,19 +2,31 @@
 <html lang="en">
 <head>
     <title>AdminPage</title>
+    <link rel="stylesheet" href="static/style.css"
+          th:href="@{style.css}"/>
 </head>
 <body>
-    <p>Sut mib Liq a ma diq</p>
+    <h1>NEXTGEN TWITTER v2.084</h1>
 
 
         <form th:action="@{/adminPage}" method="post">
-            <textarea rows="4" cols="50" name="tweet">
-        </textarea>
+            <textarea rows="4" cols="50" name="tweet"></textarea>
             <input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit Text"/>
 
-        </form>
-
+            <p>LATEST TWEET:</p>
             <div th:text="${theText}"></div>
+    </form>
+    <br>
+    </br>
+    <p>________________________________________________________________</p>
+
+<table class="mitTable">
+    <tr th:each=" allTweets : ${allTweets}" class="row">
+        <td> Tweet: </td>
+        <td th:text="${allTweets.tekst}"></td>
+        <td th:text="${allTweets.id}"></td>
+    </tr>
+</table>
 
 
 </body>

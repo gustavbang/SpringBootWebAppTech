@@ -47,7 +47,7 @@ public class HomeController {
         }
         for (int i=0; i<user.getRoles().size(); i++) {
             if (user.getRoles().get(i).equals("user")) {
-                return "home";
+                return "redirect:/home";
             }
         }
         model.addAttribute("error", true);
@@ -66,13 +66,20 @@ public class HomeController {
     @RequestMapping(value = "/adminPage", method = RequestMethod.POST)
     public String adminPage(@RequestParam("tweet") String input, Model model) {
         model.addAttribute("theText", input);
+        model.addAttribute("allTweets", userService.getTweets());
+
+        try {
+            userService.create(input);
+        } catch (Exception E) {
+            System.out.println(E);
+        }
+
         return "adminPage";
-            }
+    }
 
-
-
-
-
-
-
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home(Model model) {
+        model.addAttribute("allTweets", userService.getTweets());
+        return "home";
+    }
 }
