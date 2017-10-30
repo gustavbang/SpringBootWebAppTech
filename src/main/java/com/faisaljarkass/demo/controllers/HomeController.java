@@ -82,4 +82,4 @@ public class HomeController {
         model.addAttribute("allTweets", userService.getTweets());
         return "home";
     }
-}
+}r
