@@ -36,10 +36,13 @@ public class HomeController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute MyUser user, Model model){
-        // logger.info("login method called with: " + user);
 
         user = userService.getUser(user.getUsername(), user.getPassword());
-
+        model.addAttribute("error", true);
+        model.addAttribute("logout", true);
+        if (user == null) {
+            return "login";
+        }
         for (int i=0; i<user.getRoles().size(); i++) {
             if (user.getRoles().get(i).equals("admin")) {
                 return "adminPage";
@@ -50,9 +53,6 @@ public class HomeController {
                 return "redirect:/home";
             }
         }
-        model.addAttribute("error", true);
-        model.addAttribute("logout", true);
-        return "login";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -82,4 +82,4 @@ public class HomeController {
         model.addAttribute("allTweets", userService.getTweets());
         return "home";
     }
-}r
+}

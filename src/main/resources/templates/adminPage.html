@@ -4,9 +4,12 @@
     <title>AdminPage</title>
     <link rel="stylesheet" href="static/style.css"
           th:href="@{style.css}"/>
+    <div th:replace="fragments/header :: header-css"/>
 </head>
 <body>
     <h1>NEXTGEN TWITTER v2.084</h1>
+
+    <div th:replace="fragments/header :: header"/>
 
 
         <form th:action="@{/adminPage}" method="post">
@@ -20,14 +23,15 @@
     </br>
     <p>________________________________________________________________</p>
 
-<table class="mitTable">
-    <tr th:each=" allTweets : ${allTweets}" class="row">
-        <td> Tweet: </td>
+<table>
+    <tr th:each=" allTweets : ${allTweets}">
+        <td colspan="3" height="100"> Tweet: </td>
         <td th:text="${allTweets.tekst}"></td>
-        <td> Skrevet af Admin </td>
+        <td colspan="2"> Skrevet af Donald J. Trump </td>
     </tr>
 </table>
 
+    <div th:replace="fragments/footer :: footer"/>
 
 </body>
 </html>

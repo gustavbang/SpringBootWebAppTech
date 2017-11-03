@@ -14,12 +14,13 @@
     <h1>Latest admin tweets:</h1>
 
 
-    <table class="mitTable">
-        <tr th:each=" tweet : ${allTweets}" class="row">
-            <td> Tweet:</td>
+    <table>
+        <tr th:each=" tweet : ${allTweets}">
+            <td colspan="3" height="100"> Tweet:</td>
             <td th:text="${tweet.tekst}"></td>
-            <td th:text="${tweet.id}"></td>
+            <td colspan="3" th:text="${tweet.id}"></td>
         </tr>
+
     </table>
 
 </div>

@@ -23,10 +23,10 @@ DROP TABLE IF EXISTS `tweettable`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tweettable` (
-  `tekst` varchar(50) NOT NULL,
+  `tekst` varchar(150) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `tweettable` (
 
 LOCK TABLES `tweettable` WRITE;
 /*!40000 ALTER TABLE `tweettable` DISABLE KEYS */;
-INSERT INTO `tweettable` VALUES ('we done',32),('',38),('',39),('azat er påwwww',40),('hehe',41),('PRANKSTER PRANKSTER, STUDIO GANGSTA',42),('heh',43),('g',44),('',45),('g',46),('fa',47),('jakob er en taber abe',48),('fa',49),('anna er sød',50),('f',51),('f',52),('FLere ord',53),('flere ord part 2',54),('fafa',55);
+INSERT INTO `tweettable` VALUES ('Hey Twitter, im the 45th President of the United States of America, Washington, DC DC ',57),('MAKE AMERICA GREAT AGAIN!',58),('...There is also something appropriate about keeping him in the home of the horrible crime he committed. Should move fast. DEATH PENALTY!',59),('The United States will be immediately implementing much tougher Extreme Vetting Procedures. The safety of our citizens comes first!',60),('Obama is, without question, the WORST EVER president. I predict he will now do something really bad and totally stupid to show manhood!',61),('This election is a total sham and a travesty. We are not a democracy!',62),('I have never seen a thin person drinking Diet Coke.',63),('Robert Pattinson should not take back Kristen Stewart. She cheated on him like a dog & will do it again--just watch. He can do much better!',64),('Everyone knows I am right that Robert Pattinson should dump Kristen Stewart. In a couple of years, he will thank me. Be smart, Robert.',65),('After Friday’s Twilight release, I hope Robert Pattinson will not be seen in public with Kristen--she will cheat on him again!',66),('Climate change is a hoax.',67),('Twitter rocks.',68),('Simply the best',69);
 /*!40000 ALTER TABLE `tweettable` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-30 11:37:58
+-- Dump completed on 2017-11-03 11:52:42
