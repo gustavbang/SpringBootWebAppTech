@@ -53,6 +53,7 @@ public class HomeController {
                 return "redirect:/home";
             }
         }
+        return "login";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
